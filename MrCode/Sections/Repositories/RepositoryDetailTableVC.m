@@ -241,8 +241,7 @@
 }
 
 #pragma makr - WebViewControllerDelegate
-
-- (void)webViewShouldLoadRequest:(UIWebView *)webView
+- (void)webViewShouldLoadRequest:(UIWebView *)webView needRefresh:(BOOL)needRefresh
 {
     [self.repo readmeWithsuccess:^(NSString *success) {
         
@@ -253,6 +252,17 @@
         NSLog(@"%@", error);
     } needRefresh:NO];
 }
+// - (void)webViewShouldLoadRequest:(UIWebView *)webView
+// {
+//     [self.repo readmeWithsuccess:^(NSString *success) {
+        
+//         NSURL *baseURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
+//         [webView loadHTMLString:success baseURL:baseURL];
+        
+//     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//         NSLog(@"%@", error);
+//     } needRefresh:NO];
+// }
 
 #pragma mark - Private
 
